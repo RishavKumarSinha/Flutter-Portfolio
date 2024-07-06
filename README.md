@@ -9,7 +9,7 @@ Welcome to Flutter-Portfolio Repository! This is a simple, responsive flutter po
 
 ## Progress-so-far
 - **Design File: Completed**
-  Figma Concept Design file for the project has been completed, which can be accessed from here - https://www.figma.com/design/ZeDHEQ0IDshkKtrr8Wh83B/Portfolio?node-id=0-1&t=nbnGFXmqUw5UYf4c-1
+  <br>Figma Concept Design file for the project has been completed, which can be accessed from here - https://www.figma.com/design/ZeDHEQ0IDshkKtrr8Wh83B/Portfolio?node-id=0-1&t=nbnGFXmqUw5UYf4c-1
 
 ## Resources
 - **Flutter Docs:** https://docs.flutter.dev/
