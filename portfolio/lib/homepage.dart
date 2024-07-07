@@ -22,26 +22,26 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Container(
-                  height: screenHeight * 0.1,
+                  height: screenHeight * 0.13,
                   color: Colors.transparent,
                 ),
                 SizedBox(
-                  width: screenWidth * 0.9,
-                  height: screenHeight * 0.12,
+                  width: screenWidth * 0.85,
+                  height: screenHeight * 0.15,
                   child: Stack(
                     children: [
                       Positioned(
-                        left: screenWidth * 0.03,
+                        left: screenWidth * 0.5-174,
                         top: screenHeight * 0.0,
                         child: SizedBox(
-                          width: screenWidth * 0.66,
+                          width: 200,
                           height: screenHeight * 0.05,
                           child: Text(
                             'Hi, my name is',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: screenWidth * 0.05,
+                              fontSize: 21,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
                             ),
@@ -49,17 +49,17 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.04,
-                        top: screenHeight * 0.026,
+                        left: screenWidth * 0.5-194,
+                        top: screenHeight * 0.033,
                         child: SizedBox(
-                          width: screenWidth * 0.77,
+                          width: 300,
                           height: screenHeight * 0.05,
                           child: Text(
                             'Rishav Kumar Sinha.',
                             textAlign: TextAlign.right,
                             style: TextStyle(
                               color: const Color(0xFF1E1E1E),
-                              fontSize: screenWidth * 0.06,
+                              fontSize: 25,
                               fontFamily: GoogleFonts.rowdies().fontFamily,
                               fontWeight: FontWeight.w400,
                             ),
@@ -67,16 +67,16 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.06,
-                        top: screenHeight * 0.06,
+                        left: screenWidth * 0.5-190,
+                        top: screenHeight * 0.075,
                         child: SizedBox(
-                          width: screenWidth * 0.8,
-                          height: screenHeight * 0.07,
+                          width: 360,
+                          height: screenHeight * 0.1,
                           child: Text(
                             'I am a Flutter-Developer & Open-\nSource Enthusiast.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: screenWidth * 0.045,
+                              fontSize: 18,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
                             ),
@@ -84,11 +84,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.06,
-                        top: screenHeight * 0.01,
+                        left: screenWidth * 0.5-190,
+                        top: screenHeight * 0.016,
                         child: Container(
-                          width: screenWidth * 0.12,
-                          height: screenHeight * 0.05,
+                          width: 40,
+                          height: 40,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage('assets/images/resume.png'),
@@ -105,30 +105,30 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.transparent,
                 ),
                 SizedBox(
-                  width: screenWidth * 0.95,
+                  width: screenWidth * 0.85,
                   height: screenHeight * 0.8,
                   child: Stack(
                     children: [
                       Positioned(
-                        left: screenWidth * 0.08,
+                        left: screenWidth * 0.5-190,
                         top: screenHeight * 0.0,
                         child: Text(
                           'About me',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: screenWidth * 0.06,
+                            fontSize: 25,
                             fontFamily: GoogleFonts.rowdies().fontFamily,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.0,
+                        left: screenWidth * 0.5-210,
                         top: screenHeight * 0.04,
                         child: Container(
-                          width: screenWidth * 0.55,
-                          height: screenHeight * 0.19,
+                          width: 175,
+                          height: 130,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage('assets/images/lazy.png'),
@@ -138,17 +138,17 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.48,
-                        top: screenHeight * 0.06,
+                        left: screenWidth * 0.5-50,
+                        top: screenHeight * 0.07,
                         child: SizedBox(
-                          width: screenWidth * 0.42,
+                          width: 185,
                           height: screenHeight * 0.22,
                           child: Text(
                             'I am a 2nd-year Undergraduate at Nit Silchar who is passionate about App Development and loves Open-Source.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: screenWidth * 0.037,
+                              fontSize: 14.5,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w500,
 
@@ -157,17 +157,17 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.05,
-                        top: screenHeight * 0.24,
+                        left: screenWidth * 0.5-190,
+                        top: screenHeight * 0.23,
                         child: SizedBox(
-                          width: screenWidth * 0.85,
+                          width: 330,
                           height: screenHeight * 0.6,
                           child: Text(
                             'My interest in coding and software development started during the start of 2nd Semester when the GDSC workshops were underway, turns out submission deadlines are much closer than you think they are.\n\nFast forward to now, I am learning App Development, both Android Native and Flutter alongside active contributions to the Open-Source project ‘OpSo’, a flutter application that provides comprehensive information about various open-source programs, under the ongoing GSSoC 2024 program.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: screenWidth * 0.04,
+                              fontSize: 15,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
                             ),
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
             right: screenWidth * 0.04,
             child: Center(
               child: Container(
-                constraints: const BoxConstraints(maxWidth: 600),
+                constraints: const BoxConstraints(maxWidth: 800),
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFE9C8),
                   borderRadius: BorderRadius.circular(30),
@@ -217,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                         text: 'About',
                         textStyle: GoogleFonts.lilitaOne(
                           color: Colors.white,
-                          fontSize: screenWidth * 0.04,
+                          fontSize: 18,
                           shadows: const [
                             Shadow(
                               offset: Offset(-1.5, -1.5),
@@ -244,7 +244,7 @@ class _HomePageState extends State<HomePage> {
                         icon: Icons.folder,
                         text: 'Projects',
                         textStyle: GoogleFonts.lilitaOne(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: 16,
                           color: Colors.white,
                           shadows: const [
                             Shadow(
@@ -272,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                         icon: Icons.emoji_events,
                         text: 'Achievement',
                         textStyle: GoogleFonts.lilitaOne(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: 16,
                           color: Colors.white,
                           shadows: const [
                             Shadow(
@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                         icon: Icons.contact_page,
                         text: 'Contact',
                         textStyle: GoogleFonts.lilitaOne(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: 16,
                           color: Colors.white,
                           shadows: const [
                             Shadow(
