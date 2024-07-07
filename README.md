@@ -17,3 +17,6 @@ Welcome to Flutter-Portfolio Repository! This is a simple, responsive flutter po
 
 ## Resources
 - **Flutter Docs:** https://docs.flutter.dev/
+- **Flutter Packages:** https://pub.dev/packages/google_nav_bar
+- **Fonts:** https://fonts.google.com/
+- **Icons & Cliparts:** https://www.flaticon.com/
