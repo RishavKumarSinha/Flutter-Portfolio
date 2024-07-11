@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:portfolio/projects.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -201,6 +202,52 @@ class _HomePageState extends State<HomePage> {
                     child: _buildTimeline(events)
                   ),
                 ),
+                SizedBox(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Projects',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 25,
+                            fontFamily: GoogleFonts.rowdies().fontFamily,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.02,
+                        ),
+                        const WeatherApplicationCard(
+                          image1: "assets/images/folder.png",
+                          image2: "assets/images/program.png",
+                          title: "OpSo",
+                          description: "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for three programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.02,
+                        ),
+                        const WeatherApplicationCard(
+                          image1: "assets/images/folder.png",
+                          image2: "assets/images/program.png",
+                          title: "My Notes",
+                          description: "An Android Application for taking Notes, that I created as part of my GDSC Android Study Jams Project.\n\n> User Authentication: Secure user login and registration using Firebase Authentication.\n> Real-time Note Management: Create, edit, and delete notes, with changes reflected in real time.\n\nTechnologies : Firebase | Android Studio ",
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.02,
+                        ),
+                        const WeatherApplicationCard(
+                          image1: "assets/images/folder.png",
+                          image2: "assets/images/program.png",
+                          title: "Soriak.github.io",
+                          description: "A Weather Application, created as part of my GDSC event 'Web Blitz 4.0' Project.\n\n> Intuitive UI: A clean and user-friendly interface for seamless note management.\n> In-depth Analysis: Highly detailed data was provided regarding different weather parameters.\n\nTechnologies : HTML | CSS for front-end",
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           ),
