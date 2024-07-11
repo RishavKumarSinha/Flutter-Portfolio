@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:portfolio/projects.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -34,6 +33,28 @@ class _HomePageState extends State<HomePage> {
         'image': 'assets/images/stack-of-books.png',
       },
     ];
+    final List<Map<String, dynamic>> projects = [
+      {
+        'description1': 'Introduction to Git and GitHub, Coursera',
+        'description2': 'Completed a comprehensive Git & GitHub course, mastering version control fundamentals.',
+        'image': 'assets/images/graduated.png',
+      },
+      {
+        'description1': 'GitHub Foundations Certificate, GitHub',
+        'description2': 'This exam highlights my understanding of the foundational topics and concepts of GitHub.',
+        'image': 'assets/images/graduated.png',
+      },
+      {
+        'description1': 'GitHub Administration Certificate, GitHub',
+        'description2': 'This exam highlights my expertise in optimizing GitHub environments for repo management & workflow efficiency.',
+        'image': 'assets/images/graduated.png',
+      },
+      {
+        'description1': 'Flutter & Dart Bootcamp, Udemy',
+        'description2': 'Completed rigorous Udemy Bootcamp, mastering Flutter and Dart for mobile app development expertise.',
+        'image': 'assets/images/graduated.png',
+      },
+    ];
 
     return Scaffold(
       body: Stack(
@@ -51,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                   child: Stack(
                     children: [
                       Positioned(
-                        left: screenWidth * 0.5-174,
+                        left: screenWidth * 0.5 - 174,
                         top: screenHeight * 0.0,
                         child: SizedBox(
                           width: 200,
@@ -69,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5-194,
+                        left: screenWidth * 0.5 - 194,
                         top: screenHeight * 0.033,
                         child: SizedBox(
                           width: 300,
@@ -87,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5-190,
+                        left: screenWidth * 0.5 - 190,
                         top: screenHeight * 0.075,
                         child: SizedBox(
                           width: 360,
@@ -104,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5-190,
+                        left: screenWidth * 0.5 - 190,
                         top: screenHeight * 0.016,
                         child: Container(
                           width: 40,
@@ -130,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                   child: Stack(
                     children: [
                       Positioned(
-                        left: screenWidth * 0.5-190,
+                        left: screenWidth * 0.5 - 190,
                         top: screenHeight * 0.0,
                         child: Text(
                           'About me',
@@ -144,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5-210,
+                        left: screenWidth * 0.5 - 210,
                         top: screenHeight * 0.04,
                         child: Container(
                           width: 175,
@@ -158,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5-50,
+                        left: screenWidth * 0.5 - 50,
                         top: screenHeight * 0.07,
                         child: SizedBox(
                           width: 185,
@@ -176,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5-190,
+                        left: screenWidth * 0.5 - 190,
                         top: screenHeight * 0.23,
                         child: SizedBox(
                           width: 328,
@@ -198,9 +219,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    child: _buildTimeline(events)
-                  ),
+                  child: SizedBox(child: _buildTimeline(events)),
                 ),
                 SizedBox(
                   child: Padding(
@@ -224,7 +243,8 @@ class _HomePageState extends State<HomePage> {
                           image1: "assets/images/folder.png",
                           image2: "assets/images/program.png",
                           title: "OpSo",
-                          description: "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for three programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
+                          description:
+                              "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for three programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
                         ),
                         SizedBox(
                           height: screenHeight * 0.02,
@@ -233,7 +253,8 @@ class _HomePageState extends State<HomePage> {
                           image1: "assets/images/folder.png",
                           image2: "assets/images/program.png",
                           title: "My Notes",
-                          description: "An Android Application for taking Notes, that I created as part of my GDSC Android Study Jams Project.\n\n> User Authentication: Secure user login and registration using Firebase Authentication.\n> Real-time Note Management: Create, edit, and delete notes, with changes reflected in real time.\n\nTechnologies : Firebase | Android Studio ",
+                          description:
+                              "An Android Application for taking Notes, that I created as part of my GDSC Android Study Jams Project.\n\n> User Authentication: Secure user login and registration using Firebase Authentication.\n> Real-time Note Management: Create, edit, and delete notes, with changes reflected in real time.\n\nTechnologies : Firebase | Android Studio ",
                         ),
                         SizedBox(
                           height: screenHeight * 0.02,
@@ -242,12 +263,27 @@ class _HomePageState extends State<HomePage> {
                           image1: "assets/images/folder.png",
                           image2: "assets/images/program.png",
                           title: "Soriak.github.io",
-                          description: "A Weather Application, created as part of my GDSC event 'Web Blitz 4.0' Project.\n\n> Intuitive UI: A clean and user-friendly interface for seamless note management.\n> In-depth Analysis: Highly detailed data was provided regarding different weather parameters.\n\nTechnologies : HTML | CSS for front-end",
+                          description:
+                              "A Weather Application, created as part of my GDSC event 'Web Blitz 4.0' Project.\n\n> Intuitive UI: A clean and user-friendly interface for seamless note management.\n> In-depth Analysis: Highly detailed data was provided regarding different weather parameters.\n\nTechnologies : HTML | CSS for front-end",
                         ),
                       ],
                     ),
                   ),
-                )
+                ),
+                Text(
+                  'Certifications & Courses',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 25,
+                    fontFamily: GoogleFonts.rowdies().fontFamily,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
+                  child: SizedBox(child: _projectTimeline(projects)),
+                ),
               ],
             ),
           ),
@@ -276,7 +312,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.01, vertical: screenHeight * 0.01),
+                      horizontal: screenWidth * 0.01,
+                      vertical: screenHeight * 0.01),
                   child: GNav(
                     tabBackgroundColor: const Color(0xFFFFCC80),
                     tabActiveBorder: Border.all(color: Colors.black, width: 1),
@@ -309,7 +346,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.04, vertical: screenHeight * 0.01),
+                            horizontal: screenWidth * 0.04,
+                            vertical: screenHeight * 0.01),
                       ),
                       GButton(
                         icon: Icons.folder,
@@ -337,7 +375,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.04, vertical: screenHeight * 0.01),
+                            horizontal: screenWidth * 0.04,
+                            vertical: screenHeight * 0.01),
                       ),
                       GButton(
                         icon: Icons.emoji_events,
@@ -365,7 +404,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.04, vertical: screenHeight * 0.01),
+                            horizontal: screenWidth * 0.04,
+                            vertical: screenHeight * 0.01),
                       ),
                       GButton(
                         icon: Icons.contact_page,
@@ -393,7 +433,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.04, vertical: screenHeight * 0.01),
+                            horizontal: screenWidth * 0.04,
+                            vertical: screenHeight * 0.01),
                       )
                     ],
                   ),
@@ -431,13 +472,13 @@ class _HomePageState extends State<HomePage> {
           ),
           indicatorStyle: IndicatorStyle(
             indicator: Container(
-              decoration:  BoxDecoration(
-                color:Color(0xFFFFCC80),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFCC80),
                 shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    width: 1.4,
-                  ),
+                border: Border.all(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  width: 1.4,
+                ),
               ),
             ),
           ),
@@ -467,13 +508,14 @@ class _HomePageState extends State<HomePage> {
             width: double.infinity,
             height: 42,
             decoration: ShapeDecoration(
-              color: const Color(0xFFFFCC80), 
+              color: const Color(0xFFFFCC80),
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
                 borderRadius: BorderRadius.circular(3.96),
               ),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 5.35, vertical: 3.28),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 5.35, vertical: 3.28),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -510,6 +552,118 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 9,
+                fontFamily: GoogleFonts.lexend().fontFamily,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _projectTimeline(List<Map<String, dynamic>> projects) {
+    return Column(
+      children: projects.asMap().entries.map((entry) {
+        int index = entry.key;
+        Map<String, dynamic> project = entry.value;
+        final bool isFirst = index == 0;
+        final bool isLast = index == projects.length - 1;
+
+        return TimelineTile(
+          isFirst: isFirst,
+          isLast: isLast,
+          beforeLineStyle: const LineStyle(
+            color: Color.fromARGB(255, 247, 182, 85),
+            thickness: 6,
+          ),
+          afterLineStyle: const LineStyle(
+            color: Color(0xFFFFCC80),
+            thickness: 6,
+          ),
+          indicatorStyle: IndicatorStyle(
+            indicator: Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFCC80),
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  width: 1.4,
+                ),
+              ),
+            ),
+          ),
+          startChild: null, 
+          endChild: _buildProjectChild(project),
+        );
+      }).toList(),
+    );
+  }
+
+
+  Widget _buildProjectChild(Map<String, dynamic> project) {
+    return Container(
+      width: 140.8,
+      height: 90,
+      margin: const EdgeInsets.all(8),
+      decoration: ShapeDecoration(
+        color: const Color(0x6DFFCC80),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 1.5),
+          borderRadius: BorderRadius.circular(5.28),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            height: 42,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFFFCC80),
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 1),
+                borderRadius: BorderRadius.circular(3.96),
+              ),
+            ),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 5.35, vertical: 3.28),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    project['description1'],
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: GoogleFonts.lexend().fontFamily,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 35,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(project['image']),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 42,
+            padding: const EdgeInsets.all(6),
+            child: Text(
+              project['description2'],
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 9.8,
                 fontFamily: GoogleFonts.lexend().fontFamily,
                 fontWeight: FontWeight.w400,
               ),

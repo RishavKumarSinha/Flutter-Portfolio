@@ -73,6 +73,7 @@ flutter:
     - assets/images/graduation-diploma.png
     - assets/images/program.png
     - assets/images/folder.png
+    - assets/images/graduated.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
