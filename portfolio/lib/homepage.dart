@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +16,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final List<Map<String, dynamic>> events = [
+      {
+        'description1': 'Maa Bharti Public School, Kota',
+        'description2': 'CBSE (Class XII) | 2017-18 | Aggregate: 83%',
+        'image': 'assets/images/graduation-diploma.png',
+      },
+      {
+        'description1': 'National Institute of Technology, Silchar',
+        'description2': 'BTech | Mechanical | 2023-27 Engineering | CGPA - 7.95',
+        'image': 'assets/images/certficate.png',
+      },
+      {
+        'description1': 'Delhi Public School, Nerul, Navi Mumbai',
+        'description2': 'CBSE (Class X) | 2019-20 | Aggregate: 93.6%',
+        'image': 'assets/images/stack-of-books.png',
+      },
+    ];
 
     return Scaffold(
       body: Stack(
@@ -106,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(
                   width: screenWidth * 0.85,
-                  height: screenHeight * 0.8,
+                  height: screenHeight * 0.65,
                   child: Stack(
                     children: [
                       Positioned(
@@ -151,7 +170,6 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 14.5,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w500,
-
                             ),
                           ),
                         ),
@@ -160,8 +178,8 @@ class _HomePageState extends State<HomePage> {
                         left: screenWidth * 0.5-190,
                         top: screenHeight * 0.23,
                         child: SizedBox(
-                          width: 330,
-                          height: screenHeight * 0.6,
+                          width: 328,
+                          height: screenHeight * 0.4,
                           child: Text(
                             'My interest in coding and software development started during the start of 2nd Semester when the GDSC workshops were underway, turns out submission deadlines are much closer than you think they are.\n\nFast forward to now, I am learning App Development, both Android Native and Flutter alongside active contributions to the Open-Source project ‘OpSo’, a flutter application that provides comprehensive information about various open-source programs, under the ongoing GSSoC 2024 program.',
                             textAlign: TextAlign.center,
@@ -175,6 +193,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    child: _buildTimeline(events)
                   ),
                 ),
               ],
@@ -327,6 +351,120 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTimeline(List<Map<String, dynamic>> events) {
+    return Column(
+      children: events.asMap().entries.map((entry) {
+        int index = entry.key;
+        Map<String, dynamic> event = entry.value;
+        final bool isFirst = index == 0;
+        final bool isLast = index == events.length - 1;
+        final bool isLeft = index % 2 == 0;
+
+        return TimelineTile(
+          axis: TimelineAxis.vertical,
+          alignment: TimelineAlign.center,
+          isFirst: isFirst,
+          isLast: isLast,
+          beforeLineStyle: const LineStyle(
+            color: Color.fromARGB(255, 247, 182, 85),
+            thickness: 6,
+            //borderStyle: BorderStyle.solid,
+          ),
+          afterLineStyle: const LineStyle(
+            color: Color(0xFFFFCC80),
+            thickness: 6,
+          ),
+          indicatorStyle: IndicatorStyle(
+            indicator: Container(
+              decoration:  BoxDecoration(
+                color:Color(0xFFFFCC80),
+                shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    width: 1.4,
+                  ),
+              ),
+            ),
+          ),
+          startChild: isLeft ? _buildEventChild(event) : null,
+          endChild: isLeft ? null : _buildEventChild(event),
+        );
+      }).toList(),
+    );
+  }
+
+  Widget _buildEventChild(Map<String, dynamic> event) {
+    return Container(
+      width: 140.8,
+      height: 90,
+      margin: const EdgeInsets.all(8),
+      decoration: ShapeDecoration(
+        color: const Color(0x6DFFCC80),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 1.5),
+          borderRadius: BorderRadius.circular(5.28),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            height: 42,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFFFCC80), 
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 1),
+                borderRadius: BorderRadius.circular(3.96),
+              ),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 5.35, vertical: 3.28),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    event['description1'],
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 9,
+                      fontFamily: GoogleFonts.lexend().fontFamily,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 35,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(event['image']),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 42,
+            padding: const EdgeInsets.all(7.35),
+            child: Text(
+              event['description2'],
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 9,
+                fontFamily: GoogleFonts.lexend().fontFamily,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),
