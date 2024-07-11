@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WeatherApplicationCard extends StatelessWidget {
+class ProjectApplicationCard extends StatelessWidget {
   final String image1;
   final String image2;
   final String title;
   final String description;
 
-  const WeatherApplicationCard({
+  const ProjectApplicationCard({
     super.key,
     required this.image1,
     required this.image2,
