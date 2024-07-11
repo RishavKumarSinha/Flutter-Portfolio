@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: screenHeight * 0.02,
                         ),
-                        const WeatherApplicationCard(
+                        const ProjectApplicationCard(
                           image1: "assets/images/folder.png",
                           image2: "assets/images/program.png",
                           title: "OpSo",
@@ -249,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: screenHeight * 0.02,
                         ),
-                        const WeatherApplicationCard(
+                        const ProjectApplicationCard(
                           image1: "assets/images/folder.png",
                           image2: "assets/images/program.png",
                           title: "My Notes",
@@ -259,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: screenHeight * 0.02,
                         ),
-                        const WeatherApplicationCard(
+                        const ProjectApplicationCard(
                           image1: "assets/images/folder.png",
                           image2: "assets/images/program.png",
                           title: "Soriak.github.io",
@@ -284,6 +284,216 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
                   child: SizedBox(child: _projectTimeline(projects)),
                 ),
+                SizedBox(
+                  width: 282,
+                  height: 420,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: 282,
+                        height: 235,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 9.0, top: 0.0),
+                                  child: Text(
+                                    'Get in Touch!',
+                                    style: TextStyle(
+                                      color: const Color(0xFF1E1E1E),
+                                      fontSize: 28,
+                                      fontFamily: GoogleFonts.rowdies().fontFamily,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.4,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 68.95,
+                                  height: 68.95,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/mailbox.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: SizedBox(
+                                width: 282,
+                                height: 142,
+                                child: Text(
+                                  'I am actively looking for opportunities to upskill myself and learn more about tech, a bit everyday. So feel free to contact me, whether you have a question or just want to say hi, I’ll try my best to get back to you!',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontFamily: GoogleFonts.lexend().fontFamily,
+                                    fontWeight: FontWeight.w400,
+                                    height: 1.3,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 133,
+                        height: 88.48,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 133,
+                              height: 37,
+                              decoration: ShapeDecoration(
+                                color: const Color(0xFFFFCC80),
+                                shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    width: 1.20,
+                                    strokeAlign: BorderSide.strokeAlignOutside,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5.15),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Say Hello!',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: GoogleFonts.lexend().fontFamily,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 21),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  width: 20.48,
+                                  height: 20.48,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/github.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 20.48,
+                                  height: 20.48,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/linkedin.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 20.48,
+                                  height: 20.48,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/gmail.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10), 
+                      SizedBox(
+                        height: 86,
+                        child: Column(
+                          children: [
+                            Text(
+                              'Designed & Built by Rishav Kumar Sinha,',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontFamily: GoogleFonts.lexend().fontFamily,
+                                fontWeight: FontWeight.w400,
+                                height: 0.2
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    '0 stars',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                      fontFamily: GoogleFonts.lexend().fontFamily,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 18.36,
+                                  height: 18.36,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/trophy.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(
+                                    'on GitHub',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                      fontFamily: GoogleFonts.lexend().fontFamily,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 16.90,
+                                  height: 16.90,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/program.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              'Feel free to add yours too!',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontFamily: GoogleFonts.lexend().fontFamily,
+                                fontWeight: FontWeight.w400,
+                                height: 0.2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+
               ],
             ),
           ),
