@@ -4,7 +4,7 @@ import 'package:portfolio/theme/theme.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -96,20 +96,23 @@ class _HomePageState extends State<HomePage> {
         'description1': 'Introduction to Git and GitHub, Coursera',
         'description2': 'Completed a comprehensive Git & GitHub course, mastering version control fundamentals.',
         'image':(darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
+        'link':Uri.parse("https://coursera.org/share/a24fc57c80e5b321ae67638de7e810fd"),
       },
       {
         'description1': 'GitHub Foundations Certificate, GitHub',
         'description2': 'This exam highlights my understanding of the foundational topics and concepts of GitHub.',
         'image': (darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
+        'link':Uri.parse("https://www.credly.com/badges/28c885df-e5a0-48d0-a382-0cedc5931bcb/public_url"),
       },
       {
         'description1': 'GitHub Administration Certificate, GitHub',
         'description2': 'This exam highlights my expertise in optimizing GitHub environments for repo management & workflow efficiency.',
         'image': (darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
+        'link':Uri.parse("https://www.credly.com/badges/6b89976b-3581-4483-bb2e-65f0eae4d25a/public_url"),
       },
       {
         'description1': 'Flutter & Dart Bootcamp, Udemy',
-        'description2': 'Completed rigorous Udemy Bootcamp, mastering Flutter and Dart for mobile app development expertise.',
+        'description2': 'Currently working on a rigorous Udemy Bootcamp, mastering Flutter and Dart for mobile app development expertise.',
         'image': (darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
       },
     ];
@@ -302,6 +305,7 @@ class _HomePageState extends State<HomePage> {
                           image1: (darkModeOn)?"assets/images/foldern.png":"assets/images/folder.png",
                           image2: (darkModeOn)?"assets/images/programn.png":"assets/images/program.png",
                           title: "OpSo",
+                          link: Uri.parse("https://github.com/andoriyaprashant/OpSo"),
                           description:
                               "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for three programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
                         ),
@@ -312,6 +316,7 @@ class _HomePageState extends State<HomePage> {
                           image1: (darkModeOn)?"assets/images/foldern.png":"assets/images/folder.png",
                           image2: (darkModeOn)?"assets/images/programn.png":"assets/images/program.png",
                           title: "My Notes",
+                          link: Uri.parse("https://github.com/RishavKumarSinha/My_Notes"),
                           description:
                               "An Android Application for taking Notes, that I created as part of my GDSC Android Study Jams Project.\n\n> User Authentication: Secure user login and registration using Firebase Authentication.\n> Real-time Note Management: Create, edit, and delete notes, with changes reflected in real time.\n\nTechnologies : Firebase | Android Studio ",
                         ),
@@ -322,6 +327,7 @@ class _HomePageState extends State<HomePage> {
                           image1: (darkModeOn)?"assets/images/foldern.png":"assets/images/folder.png",
                           image2: (darkModeOn)?"assets/images/programn.png":"assets/images/program.png",
                           title: "Soriak.github.io",
+                          link:Uri.parse("https://github.com/RishavKumarSinha/soriak.github.io"),
                           description:
                               "A Weather Application, created as part of my GDSC event 'Web Blitz 4.0' Project.\n\n> Intuitive UI: A clean and user-friendly interface for seamless note management.\n> In-depth Analysis: Highly detailed data was provided regarding different weather parameters.\n\nTechnologies : HTML | CSS for front-end",
                         ),
@@ -407,27 +413,32 @@ class _HomePageState extends State<HomePage> {
                         height: 88.48,
                         child: Column(
                           children: [
-                            Container(
-                              width: 133,
-                              height: 37,
-                              decoration: ShapeDecoration(
-                                color: Theme.of(context).colorScheme.onPrimaryContainer,
-                                shape: RoundedRectangleBorder(
-                                  side: const BorderSide(
-                                    width: 1.20,
-                                    strokeAlign: BorderSide.strokeAlignOutside,
+                            GestureDetector(
+                              onTap: () {
+                                _launchURL(Uri.parse("mailto:sinharishavkumar@gmail.com"));
+                              },
+                              child: Container(
+                                width: 133,
+                                height: 37,
+                                decoration: ShapeDecoration(
+                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  shape: RoundedRectangleBorder(
+                                    side: const BorderSide(
+                                      width: 1.20,
+                                      strokeAlign: BorderSide.strokeAlignOutside,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.15),
                                   ),
-                                  borderRadius: BorderRadius.circular(5.15),
                                 ),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Say Hello!',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: GoogleFonts.lexend().fontFamily,
-                                    fontWeight: FontWeight.w400,
+                                child: Center(
+                                  child: Text(
+                                    'Say Hello!',
+                                    style: TextStyle(
+                                      color: Theme.of(context).colorScheme.tertiary,
+                                      fontSize: 20,
+                                      fontFamily: GoogleFonts.rowdies().fontFamily,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -436,33 +447,48 @@ class _HomePageState extends State<HomePage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  width: 20.48,
-                                  height: 20.48,
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/images/github.png"),
-                                      fit: BoxFit.fill,
+                                GestureDetector(
+                                  onTap:(){
+                                    _launchURL(Uri.parse("https://github.com/RishavKumarSinha"));
+                                  },
+                                  child: Container(
+                                    width: 20.48,
+                                    height: 20.48,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage("assets/images/github.png"),
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  width: 20.48,
-                                  height: 20.48,
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/images/linkedin.png"),
-                                      fit: BoxFit.fill,
+                                GestureDetector(
+                                  onTap:(){
+                                    _launchURL(Uri.parse("https://www.linkedin.com/in/your_username"));
+                                  },
+                                  child: Container(
+                                    width: 20.48,
+                                    height: 20.48,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage("assets/images/linkedin.png"),
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  width: 20.48,
-                                  height: 20.48,
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/images/gmail.png"),
-                                      fit: BoxFit.fill,
+                                GestureDetector(
+                                  onTap:(){
+                                    _launchURL(Uri.parse("mailto:sinharishavkumar@gmail.com"));
+                                  },
+                                  child: Container(
+                                    width: 20.48,
+                                    height: 20.48,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage("assets/images/gmail.png"),
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -493,7 +519,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    '0 stars',
+                                    '1 stars',
                                     style: TextStyle(
                                       color: Theme.of(context).colorScheme.primary,
                                       fontSize: 12,
@@ -502,13 +528,18 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  width: 18.36,
-                                  height: 18.36,
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/images/trophy.png"),
-                                      fit: BoxFit.fill,
+                                GestureDetector(
+                                  onTap: () {
+                                    _launchURL(Uri.parse('https://github.com/RishavKumarSinha/Flutter-Portfolio'));
+                                  },
+                                  child: Container(
+                                    width: 18.36,
+                                    height: 18.36,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage("assets/images/trophy.png"),
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -552,7 +583,6 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 )
-
               ],
             ),
           ),
@@ -564,7 +594,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 constraints: const BoxConstraints(maxWidth: 800),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: const [
                     BoxShadow(
@@ -588,7 +618,7 @@ class _HomePageState extends State<HomePage> {
                     onTabChange: (index) {
                       _scrollTo(context,index); 
                     },
-                    tabBackgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                    tabBackgroundColor: Theme.of(context).colorScheme.onPrimary,
                     tabActiveBorder: Border.all(color: Theme.of(context).colorScheme.tertiary, width: 1),
                     gap: screenWidth * 0.02,
                     activeColor: Theme.of(context).colorScheme.tertiary,
@@ -732,6 +762,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _launchURL(Uri url) async {
+    await launchUrl(url);
+  }
+
   Widget _buildTimeline(List<Map<String, dynamic>> events) {
     return Column(
       children: events.asMap().entries.map((entry) {
@@ -758,7 +792,7 @@ class _HomePageState extends State<HomePage> {
           indicatorStyle: IndicatorStyle(
             indicator: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                color: Theme.of(context).colorScheme.onPrimary,
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: Theme.of(context).colorScheme.primary,
@@ -869,7 +903,7 @@ class _HomePageState extends State<HomePage> {
           indicatorStyle: IndicatorStyle(
             indicator: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                color: Theme.of(context).colorScheme.onPrimary,
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: Theme.of(context).colorScheme.primary,
@@ -898,63 +932,68 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(5.28),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: double.infinity,
-            height: 42,
-            decoration: ShapeDecoration(
-              color: Theme.of(context).colorScheme.onPrimary,
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(3.96),
+      child: GestureDetector(
+        onTap: () {
+          _launchURL(project['link']);
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 42,
+              decoration: ShapeDecoration(
+                color: Theme.of(context).colorScheme.onPrimary,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 1),
+                  borderRadius: BorderRadius.circular(3.96),
+                ),
               ),
-            ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 5.35, vertical: 3.28),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text(
-                    project['description1'],
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 12,
-                      fontFamily: GoogleFonts.lexend().fontFamily,
-                      fontWeight: FontWeight.w400,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 5.35, vertical: 3.28),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      project['description1'],
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 12,
+                        fontFamily: GoogleFonts.lexend().fontFamily,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  width: 35,
-                  height: 38,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(project['image']),
-                      fit: BoxFit.fill,
+                  Container(
+                    width: 35,
+                    height: 38,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(project['image']),
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 42,
-            padding: const EdgeInsets.all(6),
-            child: Text(
-              project['description2'],
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: 9.8,
-                fontFamily: GoogleFonts.lexend().fontFamily,
-                fontWeight: FontWeight.w400,
+                ],
               ),
             ),
-          ),
-        ],
+            Container(
+              width: double.infinity,
+              height: 42,
+              padding: const EdgeInsets.all(6),
+              child: Text(
+                project['description2'],
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 9.8,
+                  fontFamily: GoogleFonts.lexend().fontFamily,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
