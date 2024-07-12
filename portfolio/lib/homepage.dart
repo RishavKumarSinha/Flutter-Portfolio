@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/projects.dart';
+import 'package:portfolio/theme/theme.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final brightness = MediaQuery.of(context).platformBrightness;
+    final darkModeOn = (brightness == Brightness.dark);
     final List<Map<String, dynamic>> events = [
       {
         'description1': 'Maa Bharti Public School, Kota',
@@ -37,22 +40,22 @@ class _HomePageState extends State<HomePage> {
       {
         'description1': 'Introduction to Git and GitHub, Coursera',
         'description2': 'Completed a comprehensive Git & GitHub course, mastering version control fundamentals.',
-        'image': 'assets/images/graduated.png',
+        'image':(darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
       },
       {
         'description1': 'GitHub Foundations Certificate, GitHub',
         'description2': 'This exam highlights my understanding of the foundational topics and concepts of GitHub.',
-        'image': 'assets/images/graduated.png',
+        'image': (darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
       },
       {
         'description1': 'GitHub Administration Certificate, GitHub',
         'description2': 'This exam highlights my expertise in optimizing GitHub environments for repo management & workflow efficiency.',
-        'image': 'assets/images/graduated.png',
+        'image': (darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
       },
       {
         'description1': 'Flutter & Dart Bootcamp, Udemy',
         'description2': 'Completed rigorous Udemy Bootcamp, mastering Flutter and Dart for mobile app development expertise.',
-        'image': 'assets/images/graduated.png',
+        'image': (darkModeOn)? 'assets/images/graduatedn.png': 'assets/images/graduated.png',
       },
     ];
 
@@ -81,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                             'Hi, my name is',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.secondary,
                               fontSize: 21,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
@@ -99,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                             'Rishav Kumar Sinha.',
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              color: const Color(0xFF1E1E1E),
+                              color: Theme.of(context).colorScheme.primary,
                               fontSize: 25,
                               fontFamily: GoogleFonts.rowdies().fontFamily,
                               fontWeight: FontWeight.w400,
@@ -116,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             'I am a Flutter-Developer & Open-\nSource Enthusiast.',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.secondary,
                               fontSize: 18,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
@@ -157,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                           'About me',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 0, 0, 0),
+                            color: Theme.of(context).colorScheme.primary,
                             fontSize: 25,
                             fontFamily: GoogleFonts.rowdies().fontFamily,
                             fontWeight: FontWeight.w400,
@@ -168,11 +171,11 @@ class _HomePageState extends State<HomePage> {
                         left: screenWidth * 0.5 - 210,
                         top: screenHeight * 0.04,
                         child: Container(
-                          width: 175,
-                          height: 130,
-                          decoration: const BoxDecoration(
+                          width: (darkModeOn)?195:175,
+                          height: (darkModeOn)?165:130,
+                          decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage('assets/images/lazy.png'),
+                              image: AssetImage((darkModeOn)?'assets/images/notlazy.png':'assets/images/lazy.png'),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -188,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                             'I am a 2nd-year Undergraduate at Nit Silchar who is passionate about App Development and loves Open-Source.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.secondary,
                               fontSize: 14.5,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w500,
@@ -206,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                             'My interest in coding and software development started during the start of 2nd Semester when the GDSC workshops were underway, turns out submission deadlines are much closer than you think they are.\n\nFast forward to now, I am learning App Development, both Android Native and Flutter alongside active contributions to the Open-Source project ‘OpSo’, a flutter application that provides comprehensive information about various open-source programs, under the ongoing GSSoC 2024 program.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.secondary,
                               fontSize: 15,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
@@ -230,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                           'Projects',
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 0, 0, 0),
+                            color: Theme.of(context).colorScheme.tertiary,
                             fontSize: 25,
                             fontFamily: GoogleFonts.rowdies().fontFamily,
                             fontWeight: FontWeight.w400,
@@ -239,9 +242,9 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: screenHeight * 0.02,
                         ),
-                        const ProjectApplicationCard(
-                          image1: "assets/images/folder.png",
-                          image2: "assets/images/program.png",
+                        ProjectApplicationCard(
+                          image1: (darkModeOn)?"assets/images/foldern.png":"assets/images/folder.png",
+                          image2: (darkModeOn)?"assets/images/programn.png":"assets/images/program.png",
                           title: "OpSo",
                           description:
                               "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for three programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
@@ -249,9 +252,9 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: screenHeight * 0.02,
                         ),
-                        const ProjectApplicationCard(
-                          image1: "assets/images/folder.png",
-                          image2: "assets/images/program.png",
+                        ProjectApplicationCard(
+                          image1: (darkModeOn)?"assets/images/foldern.png":"assets/images/folder.png",
+                          image2: (darkModeOn)?"assets/images/programn.png":"assets/images/program.png",
                           title: "My Notes",
                           description:
                               "An Android Application for taking Notes, that I created as part of my GDSC Android Study Jams Project.\n\n> User Authentication: Secure user login and registration using Firebase Authentication.\n> Real-time Note Management: Create, edit, and delete notes, with changes reflected in real time.\n\nTechnologies : Firebase | Android Studio ",
@@ -259,9 +262,9 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: screenHeight * 0.02,
                         ),
-                        const ProjectApplicationCard(
-                          image1: "assets/images/folder.png",
-                          image2: "assets/images/program.png",
+                        ProjectApplicationCard(
+                          image1: (darkModeOn)?"assets/images/foldern.png":"assets/images/folder.png",
+                          image2: (darkModeOn)?"assets/images/programn.png":"assets/images/program.png",
                           title: "Soriak.github.io",
                           description:
                               "A Weather Application, created as part of my GDSC event 'Web Blitz 4.0' Project.\n\n> Intuitive UI: A clean and user-friendly interface for seamless note management.\n> In-depth Analysis: Highly detailed data was provided regarding different weather parameters.\n\nTechnologies : HTML | CSS for front-end",
@@ -274,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                   'Certifications & Courses',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    color: const Color.fromARGB(255, 0, 0, 0),
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: 25,
                     fontFamily: GoogleFonts.rowdies().fontFamily,
                     fontWeight: FontWeight.w400,
@@ -303,7 +306,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     'Get in Touch!',
                                     style: TextStyle(
-                                      color: const Color(0xFF1E1E1E),
+                                      color: Theme.of(context).colorScheme.primary,
                                       fontSize: 28,
                                       fontFamily: GoogleFonts.rowdies().fontFamily,
                                       fontWeight: FontWeight.w400,
@@ -314,9 +317,9 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   width: 68.95,
                                   height: 68.95,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/mailbox.png"),
+                                      image: AssetImage((darkModeOn)?"assets/images/mailboxn.png":"assets/images/mailbox.png"),
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -331,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   'I am actively looking for opportunities to upskill myself and learn more about tech, a bit everyday. So feel free to contact me, whether you have a question or just want to say hi, I’ll try my best to get back to you!',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Theme.of(context).colorScheme.secondary,
                                     fontSize: 14,
                                     fontFamily: GoogleFonts.lexend().fontFamily,
                                     fontWeight: FontWeight.w400,
@@ -352,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                               width: 133,
                               height: 37,
                               decoration: ShapeDecoration(
-                                color: const Color(0xFFFFCC80),
+                                color: Theme.of(context).colorScheme.onPrimaryContainer,
                                 shape: RoundedRectangleBorder(
                                   side: const BorderSide(
                                     width: 1.20,
@@ -421,7 +424,7 @@ class _HomePageState extends State<HomePage> {
                               'Designed & Built by Rishav Kumar Sinha,',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Theme.of(context).colorScheme.primary,
                                 fontSize: 12,
                                 fontFamily: GoogleFonts.lexend().fontFamily,
                                 fontWeight: FontWeight.w400,
@@ -436,7 +439,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     '0 stars',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: Theme.of(context).colorScheme.primary,
                                       fontSize: 12,
                                       fontFamily: GoogleFonts.lexend().fontFamily,
                                       fontWeight: FontWeight.w400,
@@ -458,7 +461,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     'on GitHub',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: Theme.of(context).colorScheme.primary,
                                       fontSize: 12,
                                       fontFamily: GoogleFonts.lexend().fontFamily,
                                       fontWeight: FontWeight.w400,
@@ -468,9 +471,9 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   width: 16.90,
                                   height: 16.90,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/program.png"),
+                                      image: AssetImage((darkModeOn)?"assets/images/programn.png":"assets/images/program.png"),
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -480,7 +483,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Feel free to add yours too!',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Theme.of(context).colorScheme.primary,
                                 fontSize: 12,
                                 fontFamily: GoogleFonts.lexend().fontFamily,
                                 fontWeight: FontWeight.w400,
@@ -505,7 +508,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 constraints: const BoxConstraints(maxWidth: 800),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFE9C8),
+                  color: Theme.of(context).colorScheme.onPrimary,
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: const [
                     BoxShadow(
@@ -516,7 +519,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                   border: Border.all(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.primary,
                     width: 1,
                   ),
                 ),
@@ -525,13 +528,13 @@ class _HomePageState extends State<HomePage> {
                       horizontal: screenWidth * 0.01,
                       vertical: screenHeight * 0.01),
                   child: GNav(
-                    tabBackgroundColor: const Color(0xFFFFCC80),
-                    tabActiveBorder: Border.all(color: Colors.black, width: 1),
+                    tabBackgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                    tabActiveBorder: Border.all(color: Theme.of(context).colorScheme.tertiary, width: 1),
                     gap: screenWidth * 0.02,
-                    activeColor: Colors.black,
+                    activeColor: Theme.of(context).colorScheme.tertiary,
                     tabs: [
                       GButton(
-                        icon: Icons.person,
+                        icon: Icons.person,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'About',
                         textStyle: GoogleFonts.lilitaOne(
                           color: Colors.white,
@@ -560,7 +563,7 @@ class _HomePageState extends State<HomePage> {
                             vertical: screenHeight * 0.01),
                       ),
                       GButton(
-                        icon: Icons.folder,
+                        icon: Icons.folder,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'Projects',
                         textStyle: GoogleFonts.lilitaOne(
                           fontSize: 16,
@@ -589,7 +592,7 @@ class _HomePageState extends State<HomePage> {
                             vertical: screenHeight * 0.01),
                       ),
                       GButton(
-                        icon: Icons.emoji_events,
+                        icon: Icons.emoji_events,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'Achievement',
                         textStyle: GoogleFonts.lilitaOne(
                           fontSize: 16,
@@ -618,7 +621,7 @@ class _HomePageState extends State<HomePage> {
                             vertical: screenHeight * 0.01),
                       ),
                       GButton(
-                        icon: Icons.contact_page,
+                        icon: Icons.contact_page,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'Contact',
                         textStyle: GoogleFonts.lilitaOne(
                           fontSize: 16,
@@ -671,22 +674,22 @@ class _HomePageState extends State<HomePage> {
           alignment: TimelineAlign.center,
           isFirst: isFirst,
           isLast: isLast,
-          beforeLineStyle: const LineStyle(
-            color: Color.fromARGB(255, 247, 182, 85),
+          beforeLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
             thickness: 6,
             //borderStyle: BorderStyle.solid,
           ),
-          afterLineStyle: const LineStyle(
-            color: Color(0xFFFFCC80),
+          afterLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.onPrimary,
             thickness: 6,
           ),
           indicatorStyle: IndicatorStyle(
             indicator: Container(
               decoration: BoxDecoration(
-                color: const Color(0xFFFFCC80),
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color.fromARGB(255, 0, 0, 0),
+                  color: Theme.of(context).colorScheme.primary,
                   width: 1.4,
                 ),
               ),
@@ -705,7 +708,7 @@ class _HomePageState extends State<HomePage> {
       height: 90,
       margin: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
-        color: const Color(0x6DFFCC80),
+        color: Theme.of(context).colorScheme.onPrimaryContainer,
         shape: RoundedRectangleBorder(
           side: const BorderSide(width: 1.5),
           borderRadius: BorderRadius.circular(5.28),
@@ -718,7 +721,7 @@ class _HomePageState extends State<HomePage> {
             width: double.infinity,
             height: 42,
             decoration: ShapeDecoration(
-              color: const Color(0xFFFFCC80),
+              color: Theme.of(context).colorScheme.onPrimary,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
                 borderRadius: BorderRadius.circular(3.96),
@@ -733,7 +736,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     event['description1'],
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 9,
                       fontFamily: GoogleFonts.lexend().fontFamily,
                       fontWeight: FontWeight.w400,
@@ -760,7 +763,7 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               event['description2'],
               style: TextStyle(
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: 9,
                 fontFamily: GoogleFonts.lexend().fontFamily,
                 fontWeight: FontWeight.w400,
@@ -783,21 +786,21 @@ class _HomePageState extends State<HomePage> {
         return TimelineTile(
           isFirst: isFirst,
           isLast: isLast,
-          beforeLineStyle: const LineStyle(
-            color: Color.fromARGB(255, 247, 182, 85),
+          beforeLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
             thickness: 6,
           ),
-          afterLineStyle: const LineStyle(
-            color: Color(0xFFFFCC80),
+          afterLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.onPrimary,
             thickness: 6,
           ),
           indicatorStyle: IndicatorStyle(
             indicator: Container(
               decoration: BoxDecoration(
-                color: const Color(0xFFFFCC80),
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color.fromARGB(255, 0, 0, 0),
+                  color: Theme.of(context).colorScheme.primary,
                   width: 1.4,
                 ),
               ),
@@ -817,7 +820,7 @@ class _HomePageState extends State<HomePage> {
       height: 90,
       margin: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
-        color: const Color(0x6DFFCC80),
+        color: Theme.of(context).colorScheme.onPrimaryContainer,
         shape: RoundedRectangleBorder(
           side: const BorderSide(width: 1.5),
           borderRadius: BorderRadius.circular(5.28),
@@ -830,7 +833,7 @@ class _HomePageState extends State<HomePage> {
             width: double.infinity,
             height: 42,
             decoration: ShapeDecoration(
-              color: const Color(0xFFFFCC80),
+              color: Theme.of(context).colorScheme.onPrimary,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
                 borderRadius: BorderRadius.circular(3.96),
@@ -845,7 +848,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     project['description1'],
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 12,
                       fontFamily: GoogleFonts.lexend().fontFamily,
                       fontWeight: FontWeight.w400,
@@ -872,7 +875,7 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               project['description2'],
               style: TextStyle(
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: 9.8,
                 fontFamily: GoogleFonts.lexend().fontFamily,
                 fontWeight: FontWeight.w400,

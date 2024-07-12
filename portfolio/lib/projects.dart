@@ -21,9 +21,9 @@ class ProjectApplicationCard extends StatelessWidget {
       width: 306,
       height: 240,
       decoration: BoxDecoration(
-        color: const Color(0xFFFFE9C8),
+        color: Theme.of(context).colorScheme.onPrimary,
         borderRadius: BorderRadius.circular(4),
-        border: Border.all(width: 1, color: Colors.black),
+        border: Border.all(width: 1, color: Theme.of(context).colorScheme.primary),
       ),
       padding: const EdgeInsets.all(12),
       child: Column(
@@ -60,7 +60,7 @@ class ProjectApplicationCard extends StatelessWidget {
           Text(
             '$title :\n',
             style: TextStyle(
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 20,
               fontFamily: GoogleFonts.rowdies().fontFamily,
               fontWeight: FontWeight.w400,
@@ -71,7 +71,7 @@ class ProjectApplicationCard extends StatelessWidget {
             child: Text(
               description,
               style: TextStyle(
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: 10.69,
                 fontFamily: GoogleFonts.lexend().fontFamily,
                 fontWeight: FontWeight.w400,
