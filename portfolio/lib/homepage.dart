@@ -4,6 +4,7 @@ import 'package:portfolio/theme/theme.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,60 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _controller = ScrollController();
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_scrollListener);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {
+    setState(() {
+      if (_controller.offset >= 0.0 && _controller.offset < MediaQuery.of(context).size.height * 0.28) {
+        _currentIndex = 0; 
+      } else if (_controller.offset >= MediaQuery.of(context).size.height * 1.27 &&
+          _controller.offset < MediaQuery.of(context).size.height * 2.31) {
+        _currentIndex = 1; 
+      } else if (_controller.offset >= MediaQuery.of(context).size.height * 2.31 &&
+          _controller.offset < MediaQuery.of(context).size.height * 2.55) {
+        _currentIndex = 2; 
+      } else if (_controller.offset >= MediaQuery.of(context).size.height * 2.55) {
+        _currentIndex = 3; 
+      }
+    });
+  }
+
+  void _scrollTo(BuildContext context, int index) {
+  double offset = 0.0;
+  switch (index) {
+    case 0:
+      offset = 0.0;
+      break;
+    case 1:
+      offset = MediaQuery.of(context).size.height * 1.27;
+      break;
+    case 2:
+      offset = MediaQuery.of(context).size.height * 2.31;
+      break;
+    case 3:
+      offset = MediaQuery.of(context).size.height * 3.6;
+      break;
+  }
+  
+  _controller.animateTo(offset,
+    duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+}
+
+  
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -63,6 +118,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           SingleChildScrollView(
+            controller: _controller,
             child: Column(
               children: [
                 Container(
@@ -528,6 +584,10 @@ class _HomePageState extends State<HomePage> {
                       horizontal: screenWidth * 0.01,
                       vertical: screenHeight * 0.01),
                   child: GNav(
+                    selectedIndex: _currentIndex,
+                    onTabChange: (index) {
+                      _scrollTo(context,index); 
+                    },
                     tabBackgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
                     tabActiveBorder: Border.all(color: Theme.of(context).colorScheme.tertiary, width: 1),
                     gap: screenWidth * 0.02,
@@ -536,6 +596,9 @@ class _HomePageState extends State<HomePage> {
                       GButton(
                         icon: Icons.person,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'About',
+                        onPressed: () {
+                          _scrollTo(context,0);
+                        },
                         textStyle: GoogleFonts.lilitaOne(
                           color: Colors.white,
                           fontSize: 18,
@@ -565,6 +628,9 @@ class _HomePageState extends State<HomePage> {
                       GButton(
                         icon: Icons.folder,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'Projects',
+                        onPressed: () {
+                          _scrollTo(context,1);
+                        },
                         textStyle: GoogleFonts.lilitaOne(
                           fontSize: 16,
                           color: Colors.white,
@@ -594,6 +660,9 @@ class _HomePageState extends State<HomePage> {
                       GButton(
                         icon: Icons.emoji_events,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'Achievement',
+                        onPressed: () {
+                          _scrollTo(context,2);
+                        },
                         textStyle: GoogleFonts.lilitaOne(
                           fontSize: 16,
                           color: Colors.white,
@@ -623,6 +692,9 @@ class _HomePageState extends State<HomePage> {
                       GButton(
                         icon: Icons.contact_page,iconColor: Theme.of(context).colorScheme.tertiary,
                         text: 'Contact',
+                        onPressed: () {
+                          _scrollTo(context,3);
+                        },
                         textStyle: GoogleFonts.lilitaOne(
                           fontSize: 16,
                           color: Colors.white,
