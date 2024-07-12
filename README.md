@@ -12,8 +12,9 @@ Welcome to Flutter-Portfolio Repository! This is a flutter portfolio app created
 - **App: Completed**
 
 ## Screenshots
-![WhatsApp Image 2024-07-12 at 20 59 39_967fbb83](https://github.com/user-attachments/assets/4050e3bd-a0eb-4dc1-8bee-ac2a2a1171d2)
-![homepage](https://github.com/RishavKumarSinha/Flutter-Portfolio/assets/136772607/7508dcc7-7edb-4db3-a38e-908b35ee95dc)
+![Home_Dark](https://github.com/user-attachments/assets/0eb03fec-3570-41ac-a54c-e0c1b06b9a35) 
+![Home_Light](https://github.com/user-attachments/assets/a8bfc95b-115c-4e4a-a50c-361badbd2f11)
+
 
 ## Resources
 - **Flutter Docs:** https://docs.flutter.dev/
