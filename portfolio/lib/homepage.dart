@@ -6,6 +6,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -518,7 +519,7 @@ class _HomePageState extends State<HomePage> {
                                 GestureDetector(
                                   onTap: () {
                                     _launchURL(Uri.parse(
-                                        "https://www.linkedin.com/in/your_username"));
+                                        "https://www.linkedin.com/in/rishav-kumar-sinha-292471319"));
                                   },
                                   child: Container(
                                     width: 20.48,
