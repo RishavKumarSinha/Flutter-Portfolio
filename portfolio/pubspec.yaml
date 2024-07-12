@@ -79,6 +79,11 @@ flutter:
     - assets/images/gmail.png
     - assets/images/mailbox.png
     - assets/images/trophy.png
+    - assets/images/graduatedn.png
+    - assets/images/notlazy.png
+    - assets/images/programn.png
+    - assets/images/mailboxn.png
+    - assets/images/foldern.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
