@@ -40,14 +40,14 @@ class _HomePageState extends State<HomePage> {
         _currentIndex = 0;
       } else if (_controller.offset >=
               MediaQuery.of(context).size.height * 1.27 &&
-          _controller.offset < MediaQuery.of(context).size.height * 2.31) {
+          _controller.offset < MediaQuery.of(context).size.height * 2.40) {
         _currentIndex = 1;
       } else if (_controller.offset >=
               MediaQuery.of(context).size.height * 2.31 &&
-          _controller.offset < MediaQuery.of(context).size.height * 2.55) {
+          _controller.offset < MediaQuery.of(context).size.height * 3.15) {
         _currentIndex = 2;
       } else if (_controller.offset >=
-          MediaQuery.of(context).size.height * 2.55) {
+          MediaQuery.of(context).size.height * 3.15) {
         _currentIndex = 3;
       }
     });
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         offset = MediaQuery.of(context).size.height * 1.27;
         break;
       case 2:
-        offset = MediaQuery.of(context).size.height * 2.31;
+        offset = MediaQuery.of(context).size.height * 2.40;
         break;
       case 3:
         offset = MediaQuery.of(context).size.height * 3.6;
@@ -110,6 +110,16 @@ class _HomePageState extends State<HomePage> {
             "https://coursera.org/share/a24fc57c80e5b321ae67638de7e810fd"),
       },
       {
+        'description1': 'Meta Android Developer Certificate, Coursera',
+        'description2':
+            'This course helped gaining hands-on experience in Android development, React Native, Kotlin, UX/UI design, data management, and version control with Git.',
+        'image': (isDarkMode)
+            ? 'assets/images/graduatedn.png'
+            : 'assets/images/graduated.png',
+        'link': Uri.parse(
+            "https://coursera.org/share/849bab8d5f12a909d0dc7eb69abe5a9a"),
+      },
+      {
         'description1': 'GitHub Foundations Certificate, GitHub',
         'description2':
             'This exam highlights my understanding of the foundational topics and concepts of GitHub.',
@@ -128,6 +138,26 @@ class _HomePageState extends State<HomePage> {
             : 'assets/images/graduated.png',
         'link': Uri.parse(
             "https://www.credly.com/badges/6b89976b-3581-4483-bb2e-65f0eae4d25a/public_url"),
+      },
+      {
+        'description1': 'GitHub Advanced Security Certificate, GitHub',
+        'description2':
+            'This exam demonstrates my ability to detect, prevent, and manage vulnerability threats along with Code Scanning, Secret Scanning, Dependency Review & much more.',
+        'image': (isDarkMode)
+            ? 'assets/images/graduatedn.png'
+            : 'assets/images/graduated.png',
+        'link': Uri.parse(
+            "https://www.credly.com/badges/4f70598f-d7c8-49a4-a170-6c31075c5f69/public_url"),
+      },
+      {
+        'description1': 'Postman API Fundamentals Student Expert, Postman',
+        'description2':
+            'This exam highlights my expertise in API requests, Query Parameters, API key authorization, and working with Postman.',
+        'image': (isDarkMode)
+            ? 'assets/images/graduatedn.png'
+            : 'assets/images/graduated.png',
+        'link': Uri.parse(
+            "https://api.badgr.io/public/assertions/1hBVOrJwT2SlPyrRPJjtMg"),
       },
       {
         'description1': 'Flutter & Dart Bootcamp, Udemy',
@@ -156,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                   child: Stack(
                     children: [
                       Positioned(
-                        left: screenWidth * 0.5 - 174,
+                        left: screenWidth * 0.5 - 160,
                         top: screenHeight * 0.0,
                         child: SizedBox(
                           width: 200,
@@ -174,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5 - 194,
+                        left: screenWidth * 0.5 - 180,
                         top: screenHeight * 0.033,
                         child: SizedBox(
                           width: 300,
@@ -192,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5 - 190,
+                        left: screenWidth * 0.5 - 180,
                         top: screenHeight * 0.075,
                         child: SizedBox(
                           width: 360,
@@ -209,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5 - 190,
+                        left: screenWidth * 0.5 - 180,
                         top: screenHeight * 0.016,
                         child: Container(
                           width: 40,
@@ -230,12 +260,12 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.transparent,
                 ),
                 SizedBox(
-                  width: screenWidth * 0.85,
+                  width: screenWidth * 0.90,
                   height: screenHeight * 0.65,
                   child: Stack(
                     children: [
                       Positioned(
-                        left: screenWidth * 0.5 - 190,
+                        left: screenWidth * 0.5 - 172,
                         top: screenHeight * 0.0,
                         child: Text(
                           'About me',
@@ -283,17 +313,17 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.5 - 190,
+                        left: screenWidth * 0.5 - 180,
                         top: screenHeight * 0.23,
                         child: SizedBox(
-                          width: 328,
+                          width: 320,
                           height: screenHeight * 0.4,
                           child: Text(
                             'My interest in coding and software development started during the start of 2nd Semester when the GDSC workshops were underway, turns out submission deadlines are much closer than you think they are.\n\nFast forward to now, I am learning App Development, both Android Native and Flutter alongside active contributions to the Open-Source project ‘OpSo’, a flutter application that provides comprehensive information about various open-source programs, under the ongoing GSSoC 2024 program.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.secondary,
-                              fontSize: 15,
+                              fontSize: 14.5,
                               fontFamily: GoogleFonts.lexend().fontFamily,
                               fontWeight: FontWeight.w400,
                             ),
@@ -332,11 +362,43 @@ class _HomePageState extends State<HomePage> {
                           image2: (isDarkMode)
                               ? "assets/images/programn.png"
                               : "assets/images/program.png",
+                          title: "Flutter Portfolio",
+                          link: Uri.parse(
+                              "https://github.com/RishavKumarSinha/Flutter-Portfolio"),
+                          description:
+                              "This is a Flutter portfolio app created as part of my E-Cell Tech Team submission.\n\n> User-Friendly UI: Clean and intuitive UI design for easy interaction and engagement.\n> Themes: An option to toggle between Light Mode and Dark Mode, with changing images.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.02,
+                        ),
+                        ProjectApplicationCard(
+                          image1: (isDarkMode)
+                              ? "assets/images/foldern.png"
+                              : "assets/images/folder.png",
+                          image2: (isDarkMode)
+                              ? "assets/images/programn.png"
+                              : "assets/images/program.png",
+                          title: "Mousike",
+                          link: Uri.parse(
+                              "https://github.com/RishavKumarSinha/mousike"),
+                          description:
+                              "This is a flutter music app created as part of my GDSC Flutter Domain submission.\n\n> Music Player: Implementation of basic functionalities like play, pause, seek, play next song & play previous song.\n> Spotify API: Integration with Spotify API to fetch song name, artist name, song, song length from Spotify.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.02,
+                        ),
+                        ProjectApplicationCard(
+                          image1: (isDarkMode)
+                              ? "assets/images/foldern.png"
+                              : "assets/images/folder.png",
+                          image2: (isDarkMode)
+                              ? "assets/images/programn.png"
+                              : "assets/images/program.png",
                           title: "OpSo",
                           link: Uri.parse(
                               "https://github.com/andoriyaprashant/OpSo"),
                           description:
-                              "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for three programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
+                              "As part of the GSSoC, I have been contributing to OpSo.\n\n> UI page : Added UI pages for multiple programs, that utilizes JSON files to render the project data for the Program.\n> Additional Features : I have also added additional features like notification alerts for deadline, Timeline, FAQs Page & more.\n\nTechnologies : Flutter | Git | GitHub | VS Code",
                         ),
                         SizedBox(
                           height: screenHeight * 0.02,
