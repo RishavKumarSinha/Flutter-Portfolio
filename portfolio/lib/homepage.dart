@@ -36,18 +36,18 @@ class _HomePageState extends State<HomePage> {
   void _scrollListener() {
     setState(() {
       if (_controller.offset >= 0.0 &&
-          _controller.offset < MediaQuery.of(context).size.height * 0.28) {
+          _controller.offset < MediaQuery.of(context).size.height * 1.30) {
         _currentIndex = 0;
       } else if (_controller.offset >=
-              MediaQuery.of(context).size.height * 1.27 &&
-          _controller.offset < MediaQuery.of(context).size.height * 2.40) {
+              MediaQuery.of(context).size.height * 1.30 &&
+          _controller.offset < MediaQuery.of(context).size.height * 3.112) {
         _currentIndex = 1;
       } else if (_controller.offset >=
-              MediaQuery.of(context).size.height * 2.31 &&
-          _controller.offset < MediaQuery.of(context).size.height * 3.15) {
+              MediaQuery.of(context).size.height * 3.112 &&
+          _controller.offset < MediaQuery.of(context).size.height * 4.195) {
         _currentIndex = 2;
       } else if (_controller.offset >=
-          MediaQuery.of(context).size.height * 3.15) {
+          MediaQuery.of(context).size.height * 4.195) {
         _currentIndex = 3;
       }
     });
@@ -60,13 +60,13 @@ class _HomePageState extends State<HomePage> {
         offset = 0.0;
         break;
       case 1:
-        offset = MediaQuery.of(context).size.height * 1.27;
+        offset = MediaQuery.of(context).size.height * 1.30;
         break;
       case 2:
-        offset = MediaQuery.of(context).size.height * 2.40;
+        offset = MediaQuery.of(context).size.height * 3.112;
         break;
       case 3:
-        offset = MediaQuery.of(context).size.height * 3.6;
+        offset = MediaQuery.of(context).size.height * 4.195;
         break;
     }
 
@@ -166,6 +166,28 @@ class _HomePageState extends State<HomePage> {
         'image': (isDarkMode)
             ? 'assets/images/graduatedn.png'
             : 'assets/images/graduated.png',
+      },
+    ];
+    final List<Map<String, dynamic>> clubs = [
+      {
+        'description1': 'Google Developer Group on Campus, NIT Silchar',
+        'description2':
+            'GDG on Campus, NIT Silchar focuses on solving real-life problems in and around our society by developing meaningful products.',
+        'image': (isDarkMode)
+            ? 'assets/images/gdg.png'
+            : 'assets/images/gdg.png',
+        'link': Uri.parse(
+            "https://gdscnits.in/"),
+      },
+      {
+        'description1': 'E-Cell, NIT Silchar',
+        'description2':
+            'E-Cell, NIT Silchar is a non-profit student-run organization promoting and nurturing the entrepreneurial spirit among students.',
+        'image': (isDarkMode)
+            ? 'assets/images/ecell.webp'
+            : 'assets/images/ecell.png',
+        'link': Uri.parse(
+            "https://ecellnits.org/"),
       },
     ];
 
@@ -450,6 +472,21 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 8.0),
                   child: SizedBox(child: _projectTimeline(projects)),
+                ),
+                Text(
+                  'Volunteer Experience',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 25,
+                    fontFamily: GoogleFonts.rowdies().fontFamily,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 18.0, vertical: 8.0),
+                  child: SizedBox(child: _clubTimeline(clubs)),
                 ),
                 SizedBox(
                   width: 282,
@@ -1063,6 +1100,44 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _clubTimeline(List<Map<String, dynamic>> projects) {
+    return Column(
+      children: projects.asMap().entries.map((entry) {
+        int index = entry.key;
+        Map<String, dynamic> project = entry.value;
+        final bool isFirst = index == 0;
+        final bool isLast = index == projects.length - 1;
+
+        return TimelineTile(
+          isFirst: isFirst,
+          isLast: isLast,
+          beforeLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            thickness: 6,
+          ),
+          afterLineStyle: LineStyle(
+            color: Theme.of(context).colorScheme.onPrimary,
+            thickness: 6,
+          ),
+          indicatorStyle: IndicatorStyle(
+            indicator: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.onPrimary,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.primary,
+                  width: 1.4,
+                ),
+              ),
+            ),
+          ),
+          startChild: null,
+          endChild: _buildClubChild(project),
+        );
+      }).toList(),
+    );
+  }
+
   Widget _buildProjectChild(Map<String, dynamic> project) {
     return Container(
       width: 140.8,
@@ -1124,6 +1199,83 @@ class _HomePageState extends State<HomePage> {
             Container(
               width: double.infinity,
               height: 42,
+              padding: const EdgeInsets.all(6),
+              child: Text(
+                project['description2'],
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 9.8,
+                  fontFamily: GoogleFonts.lexend().fontFamily,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildClubChild(Map<String, dynamic> project) {
+    return Container(
+      width: 140.8,
+      height: 101.5,
+      margin: const EdgeInsets.all(8),
+      decoration: ShapeDecoration(
+        color: Theme.of(context).colorScheme.onPrimaryContainer,
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 1.5),
+          borderRadius: BorderRadius.circular(5.28),
+        ),
+      ),
+      child: GestureDetector(
+        onTap: () {
+          _launchURL(project['link']);
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 42,
+              decoration: ShapeDecoration(
+                color: Theme.of(context).colorScheme.onPrimary,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 1),
+                  borderRadius: BorderRadius.circular(3.96),
+                ),
+              ),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 5.35, vertical: 2.28),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      project['description1'],
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 12,
+                        fontFamily: GoogleFonts.lexend().fontFamily,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 35,
+                    height: 38,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(project['image']),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 56,
               padding: const EdgeInsets.all(6),
               child: Text(
                 project['description2'],

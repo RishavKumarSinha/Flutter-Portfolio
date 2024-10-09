@@ -104,6 +104,9 @@ flutter:
     - assets/images/programn.png
     - assets/images/mailboxn.png
     - assets/images/foldern.png
+    - assets/images/gdg.png
+    - assets/images/ecell.webp
+    - assets/images/ecell.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
